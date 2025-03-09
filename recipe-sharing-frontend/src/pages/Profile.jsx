@@ -6,9 +6,9 @@ const Profile = () => {
   const user = {
     profilePic: "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?ga=GA1.1.980296472.1739984781&semt=ais_hybrid", // Replace with actual image URL
     name: "Monisha M",
-    username: "monisha_ai",
+    username: "monisha_m",
     contact: "+91 98765 43210",
-    email: "monisha@example.com",
+    email: "221801034@rajalakshmi.edu.in",
     department: "Artificial Intelligence & Data Science",
     college: "Rajalakshmi Engineering College",
   };

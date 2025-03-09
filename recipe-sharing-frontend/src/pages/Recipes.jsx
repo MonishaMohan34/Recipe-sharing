@@ -6,9 +6,24 @@ import { recipes as recipesData } from "../data/recipes";
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
 
+  // useEffect(() => {
+  //   setRecipes(recipesData); 
+  // }, []);
+
   useEffect(() => {
-    setRecipes(recipesData); 
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/recipes");
+        const data = await response.json();
+        setRecipes(data);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+  
+    fetchRecipes();
   }, []);
+  
 
   return (
     <Container className="container" sx={{ mt: 5, textAlign: "center" }}>

@@ -19,6 +19,31 @@ const AddRecipe = () => {
     }
   };
 
+  const handleAddRecipe = async () => {
+    try {
+      const token = localStorage.getItem("token");
+  
+      const response = await fetch("http://localhost:5000/api/recipes/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ name: dishName, ingredients: ingredients.split(","), instructions: steps.map(step => step.step) }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        alert("Recipe added successfully!");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error("Error adding recipe:", error);
+    }
+  };
+  
+
   // Prepare nodes for flowchart
   const nodes = steps.map((step, index) => ({
     id: String(index + 1),
